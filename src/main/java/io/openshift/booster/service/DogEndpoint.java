@@ -16,17 +16,20 @@
 package io.openshift.booster.service;
 
 import javax.ws.rs.GET;
-import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Path("/fetchDogs")
+@RestController
 @Component
 public class DogEndpoint {
+    
     @GET
     @Produces("application/json")
+    @RequestMapping("/fetchDogs")
     public String fetchDogs() {
         RestTemplate restTemplate = new RestTemplate();
         String result = 
